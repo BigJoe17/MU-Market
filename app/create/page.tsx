@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { supabase } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
+import { ensureUserExists } from '@/lib/utils'
 import Navbar from '@/components/Navbar'
 
 export default function CreateListing() {
@@ -75,6 +76,12 @@ export default function CreateListing() {
     setError('')
 
     try {
+      // Ensure user exists in public.users table
+      const userExists = await ensureUserExists(user.id, user.email)
+      if (!userExists) {
+        throw new Error('Unable to create user profile. Please try again.')
+      }
+
       const { error } = await supabase
         .from('listings')
         .insert([

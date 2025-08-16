@@ -3,15 +3,18 @@
 import { useEffect, useState } from 'react'
 import { supabase, type Listing } from '@/lib/supabase'
 import { useRouter } from 'next/navigation'
+import { useAuth } from '@/components/providers/AuthProvider'
 import Navbar from '@/components/Navbar'
 import ListingCard from '@/components/ListingCard'
+import { User } from '@supabase/supabase-js'
 
 export default function Dashboard() {
-  const [user, setUser] = useState<any>(null)
+  const { user, loading: authLoading} = useAuth()
   const [listings, setListings] = useState<Listing[]>([])
   const [filteredListings, setFilteredListings] = useState<Listing[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+
   const router = useRouter()
 
   const categories = [
@@ -23,8 +26,10 @@ export default function Dashboard() {
 
   useEffect(() => {
     checkUser()
-    fetchListings()
-  }, [])
+    if (user) {
+      fetchListings()
+    }
+  }, [user, authLoading])
 
   useEffect(() => {
     if (selectedCategory === 'all') {
@@ -35,12 +40,9 @@ export default function Dashboard() {
   }, [selectedCategory, listings])
 
   const checkUser = async () => {
-    const { data: { user } } = await supabase.auth.getUser()
-    if (!user) {
+    if (!user && !authLoading) {
       router.push('/auth')
-      return
     }
-    setUser(user)
   }
 
   const fetchListings = async () => {
@@ -63,7 +65,7 @@ export default function Dashboard() {
     }
   }
 
-  if (loading) {
+  if (authLoading || loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
@@ -71,9 +73,13 @@ export default function Dashboard() {
     )
   }
 
+  if (!user) {
+    return null // Will redirect in useEffect
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar user={user} />
+      <Navbar />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
@@ -129,3 +135,4 @@ export default function Dashboard() {
     </div>
   )
 }
+
