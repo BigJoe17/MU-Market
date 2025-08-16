@@ -210,7 +210,7 @@ export default function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">Sign up with MU email</h3>
               <p className="text-gray-600">
-                Use your @marwadiuniversity.ac.in email to verify you're a real MU student and join our exclusive community.
+                Use your @marwadiuniversity.ac.in email to verify you&apos;re a real MU student and join our exclusive community.
               </p>
             </div>
             <div className="text-center group">
@@ -272,7 +272,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                "Found amazing study partners for my CS projects. The collaboration features are incredible!"
+                &quot;Found amazing study partners for my CS projects. The collaboration features are incredible!&quot;
               </p>
               <div className="flex text-yellow-400">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -291,7 +291,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                "Connected with seniors who guided me through internship applications. Game changer!"
+                &quot;Connected with seniors who guided me through internship applications. Game changer!&quot;
               </p>
               <div className="flex text-yellow-400">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -310,7 +310,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                "Best platform to find project teammates and share resources. Highly recommend!"
+                &quot;Best platform to find project teammates and share resources. Highly recommend!&quot;
               </p>
               <div className="flex text-yellow-400">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -326,7 +326,7 @@ export default function LandingPage() {
       <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Don't miss out – Be part of the first student-only MU network
+            Don&apos;t miss out – Be part of the first student-only MU network
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
             Join hundreds of MU students who are already building their network and unlocking opportunities.

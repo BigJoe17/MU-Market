@@ -246,7 +246,7 @@ export default function FavoritesPage() {
               </div>
               <div>
                 <p className="font-medium text-gray-900 mb-1">Message Sellers</p>
-                <p>Don't hesitate to ask questions or negotiate prices.</p>
+                <p>Don&apos;t hesitate to ask questions or negotiate prices.</p>
               </div>
               <div>
                 <p className="font-medium text-gray-900 mb-1">Act Fast</p>

@@ -87,7 +87,7 @@ export default function UserProfile({ userId, isOwnProfile = false }: UserProfil
     return (
       <div className="max-w-4xl mx-auto p-6 text-center">
         <h1 className="text-2xl font-bold text-gray-900 mb-4">User not found</h1>
-        <p className="text-gray-600">The user profile you're looking for doesn't exist.</p>
+        <p className="text-gray-600">The user profile you&apos;re looking for doesn&apos;t exist.</p>
       </div>
     )
   }
