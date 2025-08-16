@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase, type Listing } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase'
+import { Listing } from '@/lib/types'
 import { useRouter } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import { notFound } from 'next/navigation'
@@ -108,7 +109,7 @@ export default function ListingDetail({ params }: Props) {
   if (!listing) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Navbar user={user} />
+        <Navbar/>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center">
             <h1 className="text-2xl font-bold text-gray-900">Listing not found</h1>
@@ -126,7 +127,7 @@ export default function ListingDetail({ params }: Props) {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar user={user} />
+      <Navbar />
       
       <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <button
@@ -199,7 +200,7 @@ export default function ListingDetail({ params }: Props) {
                       <svg className="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                       </svg>
-                      <span className="text-gray-700">{listing.user?.name || 'Anonymous'}</span>
+                      <span className="text-gray-700">{listing.user?.id || 'Anonymous'}</span>
                     </div>
                     
                     <div className="flex items-center">

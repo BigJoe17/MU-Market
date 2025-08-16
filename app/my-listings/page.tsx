@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { supabase, type Listing } from '@/lib/supabase'
+import { supabase } from '@/lib/supabase'
+import { Listing } from '@/lib/types'
 import { useRouter } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 
@@ -91,8 +92,8 @@ export default function MyListings() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar user={user} />
-      
+      <Navbar />
+
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex justify-between items-center mb-8">
           <div>
