@@ -146,7 +146,7 @@ export default function EditListing() {
   if (!listing && !error) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <Navbar user={user} />
+        <Navbar  />
         <div className="max-w-2xl mx-auto py-12 px-4">
           <div className="text-center">Loading...</div>
         </div>
@@ -156,7 +156,7 @@ export default function EditListing() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <Navbar user={user} />
+      <Navbar  />
       
       <div className="max-w-2xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-lg shadow-md p-6">
