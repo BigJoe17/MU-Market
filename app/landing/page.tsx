@@ -1,49 +1,36 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { 
-  Users, 
-  BookOpen, 
-  Rocket, 
-  Mail, 
-  UserPlus, 
-  Network,
-  ChevronRight,
-  Star,
-  Heart,
-  ArrowRight
-} from 'lucide-react'
+import { Star, Users, MessageCircle, ShoppingBag, BookOpen, Briefcase, 
+         Shield, Zap, CheckCircle, TrendingUp, ArrowRight, Search, 
+         CreditCard, Globe } from 'lucide-react'
 
 export default function LandingPage() {
-  const [isVisible, setIsVisible] = useState(false)
-
-  useEffect(() => {
-    setIsVisible(true)
-  }, [])
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-purple-50 to-green-50">
+    <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
-                <span className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  MU Connect
-                </span>
+              <div className="text-2xl font-bold text-blue-900">MU Market</div>
+              <div className="ml-3 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded-full font-medium">
+                Student Marketplace
               </div>
             </div>
-            <div className="hidden md:flex items-center space-x-8">
-              <a href="#features" className="text-gray-700 hover:text-blue-600 transition-colors">Features</a>
-              <a href="#how-it-works" className="text-gray-700 hover:text-blue-600 transition-colors">How It Works</a>
-              <a href="#community" className="text-gray-700 hover:text-blue-600 transition-colors">Community</a>
+            <div className="flex items-center space-x-4">
               <Link 
                 href="/auth" 
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+                className="text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
               >
-                Get Started
+                Sign In
+              </Link>
+              <Link 
+                href="/auth" 
+                className="bg-blue-900 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors shadow-sm"
+              >
+                Join Now
               </Link>
             </div>
           </div>
@@ -51,228 +38,241 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-24 pb-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className={`transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Users className="w-4 h-4 mr-2" />
-                Exclusively for MU Students
+      <section className="pt-20 pb-16 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+              The <span className="text-blue-900">Student Marketplace</span> 
+              <br />for Marwadi University
+            </h1>
+            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+              Buy, sell, and trade textbooks, electronics, services, and skills with verified MU students. 
+              Safe, simple, and exclusively for our university community.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Link 
+                href="/auth" 
+                className="bg-blue-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors shadow-lg flex items-center gap-2"
+              >
+                Start Shopping <ArrowRight className="w-5 h-5" />
+              </Link>
+              <Link 
+                href="/auth" 
+                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-blue-900 hover:text-blue-900 transition-colors flex items-center gap-2"
+              >
+                List an Item <ShoppingBag className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-3xl font-bold text-blue-900 mb-2">500+</div>
+              <div className="text-gray-600">Active Students</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-900 mb-2">1,200+</div>
+              <div className="text-gray-600">Items Listed</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-900 mb-2">800+</div>
+              <div className="text-gray-600">Successful Trades</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold text-blue-900 mb-2">4.8/5</div>
+              <div className="text-gray-600">User Rating</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Categories Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What You Can Find</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover everything you need for your university life, all in one marketplace
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <BookOpen className="w-8 h-8 text-blue-900" />
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                Connect.
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  Collaborate.
-                </span>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-green-600">
-                  Grow
-                </span>
-                <span className="text-2xl md:text-3xl text-gray-600 font-normal">
-                  at Marwadi University.
-                </span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Join a vibrant community of MU students – network, share ideas, and unlock opportunities in your academic journey.
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Academic Items</h3>
+              <p className="text-gray-600 mb-6">
+                Textbooks, notes, study materials, calculators, and lab equipment at student-friendly prices.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Link 
-                  href="/auth"
-                  className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 flex items-center justify-center"
-                >
-                  Get Started
-                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <button className="text-blue-600 border border-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-blue-50 transition-all duration-300 flex items-center justify-center">
-                  Watch Demo
-                  <ChevronRight className="w-5 h-5 ml-2" />
-                </button>
-              </div>
-              <div className="mt-8 flex items-center gap-6 text-sm text-gray-600">
-                <div className="flex items-center">
-                  <div className="flex -space-x-2 mr-3">
-                    {[1, 2, 3, 4].map((i) => (
-                      <div key={i} className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-400 to-purple-400 border-2 border-white"></div>
-                    ))}
-                  </div>
-                  <span>100+ students already joined</span>
-                </div>
-                <div className="flex items-center">
-                  <Star className="w-4 h-4 fill-yellow-400 text-yellow-400 mr-1" />
-                  <span>4.9/5 rating</span>
-                </div>
+              <div className="text-sm text-blue-900 font-medium">
+                Popular: Engineering Textbooks, Lab Manuals, Stationery
               </div>
             </div>
-            <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-400 rounded-3xl transform rotate-3"></div>
-                <div className="relative bg-white rounded-3xl p-8 shadow-2xl">
-                  <div className="grid grid-cols-2 gap-6">
-                    <div className="bg-blue-50 rounded-2xl p-6 text-center">
-                      <Users className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-                      <h3 className="font-semibold text-gray-900 mb-2">Connect</h3>
-                      <p className="text-sm text-gray-600">Find peers in your field</p>
-                    </div>
-                    <div className="bg-purple-50 rounded-2xl p-6 text-center">
-                      <BookOpen className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-                      <h3 className="font-semibold text-gray-900 mb-2">Learn</h3>
-                      <p className="text-sm text-gray-600">Share knowledge & resources</p>
-                    </div>
-                    <div className="bg-green-50 rounded-2xl p-6 text-center">
-                      <Rocket className="w-12 h-12 text-green-600 mx-auto mb-4" />
-                      <h3 className="font-semibold text-gray-900 mb-2">Grow</h3>
-                      <p className="text-sm text-gray-600">Build your network</p>
-                    </div>
-                    <div className="bg-orange-50 rounded-2xl p-6 text-center">
-                      <Network className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-                      <h3 className="font-semibold text-gray-900 mb-2">Collaborate</h3>
-                      <p className="text-sm text-gray-600">Work on projects together</p>
-                    </div>
-                  </div>
-                </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <ShoppingBag className="w-8 h-8 text-blue-900" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Electronics & Gadgets</h3>
+              <p className="text-gray-600 mb-6">
+                Laptops, smartphones, headphones, chargers, and other tech essentials for students.
+              </p>
+              <div className="text-sm text-blue-900 font-medium">
+                Popular: Laptops, Phone Accessories, Gaming Items
+              </div>
+            </div>
+            
+            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <Briefcase className="w-8 h-8 text-blue-900" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Services & Skills</h3>
+              <p className="text-gray-600 mb-6">
+                Tutoring, project help, graphic design, coding services, and freelance opportunities.
+              </p>
+              <div className="text-sm text-blue-900 font-medium">
+                Popular: Math Tutoring, Programming Help, Design Services
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section id="features" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* How It Works */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Everything you need to succeed at MU
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our platform is designed specifically for Marwadi University students to help you make the most of your college experience.
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">How MU Market Works</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Simple, secure, and designed specifically for university students
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="group p-8 rounded-3xl bg-gradient-to-br from-blue-50 to-blue-100 hover:from-blue-100 hover:to-blue-200 transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Users className="w-8 h-8 text-white" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-blue-900">1</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Find Like-Minded Students</h3>
-              <p className="text-gray-600 mb-6">
-                Connect with students who share your interests, major, or career goals. Build meaningful relationships that last beyond college.
-              </p>
-              <div className="flex items-center text-blue-600 font-semibold group-hover:translate-x-2 transition-transform">
-                Learn more <ArrowRight className="w-4 h-4 ml-2" />
-              </div>
-            </div>
-            <div className="group p-8 rounded-3xl bg-gradient-to-br from-purple-50 to-purple-100 hover:from-purple-100 hover:to-purple-200 transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <BookOpen className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Campus Resources</h3>
-              <p className="text-gray-600 mb-6">
-                Access exclusive events, study materials, and join communities based on your courses, clubs, and interests.
-              </p>
-              <div className="flex items-center text-purple-600 font-semibold group-hover:translate-x-2 transition-transform">
-                Explore resources <ArrowRight className="w-4 h-4 ml-2" />
-              </div>
-            </div>
-            <div className="group p-8 rounded-3xl bg-gradient-to-br from-green-50 to-green-100 hover:from-green-100 hover:to-green-200 transition-all duration-300 transform hover:-translate-y-2">
-              <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-                <Rocket className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Unlock Opportunities</h3>
-              <p className="text-gray-600 mb-6">
-                Collaborate on exciting projects, connect with seniors and alumni, and discover internship and job opportunities.
-              </p>
-              <div className="flex items-center text-green-600 font-semibold group-hover:translate-x-2 transition-transform">
-                Get started <ArrowRight className="w-4 h-4 ml-2" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works Section */}
-      <section id="how-it-works" className="py-20 bg-gradient-to-r from-blue-50 to-purple-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Get started in 3 simple steps
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Join the MU community in minutes and start building your network today.
-            </p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center group">
-              <div className="relative mb-8">
-                <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                  <Mail className="w-12 h-12 text-white" />
-                </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold">
-                  1
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Sign up with MU email</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Sign Up with MU Email</h3>
               <p className="text-gray-600">
-                Use your @marwadiuniversity.ac.in email to verify you&apos;re a real MU student and join our exclusive community.
+                Use your @marwadiuniversity.ac.in email to verify you&apos;re a genuine MU student and join our trusted community.
               </p>
             </div>
-            <div className="text-center group">
-              <div className="relative mb-8">
-                <div className="w-24 h-24 bg-gradient-to-r from-purple-600 to-green-600 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                  <UserPlus className="w-12 h-12 text-white" />
-                </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold">
-                  2
-                </div>
+            
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-blue-900">2</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Create your profile</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Browse or List Items</h3>
               <p className="text-gray-600">
-                Add your interests, major, year, and skills to help other students find and connect with you easily.
+                Search for what you need or list items you want to sell. Add photos, descriptions, and set your price.
               </p>
             </div>
-            <div className="text-center group">
-              <div className="relative mb-8">
-                <div className="w-24 h-24 bg-gradient-to-r from-green-600 to-blue-600 rounded-full flex items-center justify-center mx-auto group-hover:scale-110 transition-transform">
-                  <Network className="w-12 h-12 text-white" />
-                </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-black font-bold">
-                  3
-                </div>
+            
+            <div className="text-center">
+              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-2xl font-bold text-blue-900">3</span>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Start connecting</h3>
+              <h3 className="text-xl font-semibold text-gray-900 mb-4">Connect & Trade</h3>
               <p className="text-gray-600">
-                Discover students in your field, join interest groups, and start building meaningful connections at MU.
+                Message sellers directly, negotiate prices, and arrange safe meetups on campus or nearby.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Community Showcase */}
-      <section id="community" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Features */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center bg-green-100 text-green-800 px-4 py-2 rounded-full text-sm font-medium mb-6">
-              <Users className="w-4 h-4 mr-2" />
-              Already 100+ MU students onboard
-            </div>
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Join a thriving community
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              See what your fellow MU students are saying about their experience on our platform.
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose MU Market?</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Built by students, for students, with features that matter most to your university experience
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl p-8 transform hover:-translate-y-2 transition-all duration-300">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Shield className="w-6 h-6 text-blue-900" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">University-Verified</h3>
+              <p className="text-gray-600">Only verified MU students can join, ensuring a safe and trusted community.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <MessageCircle className="w-6 h-6 text-blue-900" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Direct Messaging</h3>
+              <p className="text-gray-600">Chat directly with buyers and sellers to negotiate and arrange meetups.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Search className="w-6 h-6 text-blue-900" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Smart Search</h3>
+              <p className="text-gray-600">Find exactly what you need with filters for category, price, and condition.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Star className="w-6 h-6 text-blue-900" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Rating System</h3>
+              <p className="text-gray-600">Rate and review other students to build trust and reputation in the community.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <Zap className="w-6 h-6 text-blue-900" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Quick Listings</h3>
+              <p className="text-gray-600">List items in minutes with our simple form and photo upload system.</p>
+            </div>
+            
+            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                <TrendingUp className="w-6 h-6 text-blue-900" />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-3">Price Insights</h3>
+              <p className="text-gray-600">See market trends and suggested prices to get the best deals.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">What MU Students Say</h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Real experiences from your fellow university students
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-8 rounded-xl">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full flex items-center justify-center text-white font-bold">
-                  A
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="font-semibold text-blue-900">AP</span>
                 </div>
-                <div className="ml-4">
-                  <h4 className="font-bold text-gray-900">Arjun Patel</h4>
+                <div>
+                  <h4 className="font-semibold text-gray-900">Arjun Patel</h4>
                   <p className="text-gray-600 text-sm">Computer Science, 3rd Year</p>
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                &quot;Found amazing study partners for my CS projects. The collaboration features are incredible!&quot;
+                &quot;Sold my old laptop and bought textbooks for next semester. The whole process was smooth and I saved a lot of money!&quot;
               </p>
               <div className="flex text-yellow-400">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -280,18 +280,19 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-3xl p-8 transform hover:-translate-y-2 transition-all duration-300">
+            
+            <div className="bg-gray-50 p-8 rounded-xl">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-purple-400 to-green-400 rounded-full flex items-center justify-center text-white font-bold">
-                  P
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="font-semibold text-blue-900">PS</span>
                 </div>
-                <div className="ml-4">
-                  <h4 className="font-bold text-gray-900">Priya Shah</h4>
+                <div>
+                  <h4 className="font-semibold text-gray-900">Priya Sharma</h4>
                   <p className="text-gray-600 text-sm">Business Management, 2nd Year</p>
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                &quot;Connected with seniors who guided me through internship applications. Game changer!&quot;
+                &quot;Found a calculus tutor who helped me improve my grades. The rating system helped me choose someone reliable.&quot;
               </p>
               <div className="flex text-yellow-400">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -299,18 +300,19 @@ export default function LandingPage() {
                 ))}
               </div>
             </div>
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-3xl p-8 transform hover:-translate-y-2 transition-all duration-300">
+            
+            <div className="bg-gray-50 p-8 rounded-xl">
               <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-blue-400 rounded-full flex items-center justify-center text-white font-bold">
-                  R
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                  <span className="font-semibold text-blue-900">RK</span>
                 </div>
-                <div className="ml-4">
-                  <h4 className="font-bold text-gray-900">Rahul Joshi</h4>
+                <div>
+                  <h4 className="font-semibold text-gray-900">Rajesh Kumar</h4>
                   <p className="text-gray-600 text-sm">Mechanical Engineering, 4th Year</p>
                 </div>
               </div>
               <p className="text-gray-700 mb-4">
-                &quot;Best platform to find project teammates and share resources. Highly recommend!&quot;
+                &quot;Perfect platform for selling things before graduation. Made some extra money and helped junior students too!&quot;
               </p>
               <div className="flex text-yellow-400">
                 {[1, 2, 3, 4, 5].map((star) => (
@@ -322,68 +324,84 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      {/* CTA Section */}
+      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Don&apos;t miss out – Be part of the first student-only MU network
+            Ready to Start Trading?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join hundreds of MU students who are already building their network and unlocking opportunities.
+            Join hundreds of MU students who are already buying, selling, and sharing on our marketplace.
           </p>
-          <Link 
-            href="/auth"
-            className="inline-flex items-center bg-white text-blue-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105"
-          >
-            Join the Community
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Link>
-          <div className="mt-8 text-blue-100">
-            <p>✨ Free forever • 🔒 Student-only • 📧 MU email required</p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              href="/auth" 
+              className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg inline-flex items-center justify-center gap-2"
+            >
+              Sign Up with MU Email <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link 
+              href="/dashboard" 
+              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors inline-flex items-center justify-center gap-2"
+            >
+              Browse Marketplace <ShoppingBag className="w-5 h-5" />
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-16">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="col-span-2">
-              <div className="flex items-center mb-6">
-                <span className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                  MU Connect
-                </span>
-              </div>
-              <p className="text-gray-400 mb-6 max-w-md">
-                The exclusive networking platform for Marwadi University students. Connect, collaborate, and grow together.
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="text-2xl font-bold mb-4">MU Market</div>
+              <p className="text-gray-400 mb-4">
+                The official student marketplace for Marwadi University. Safe, verified, and community-driven.
               </p>
-              <div className="flex items-center text-pink-400">
-                <span>Made with</span>
-                <Heart className="w-5 h-5 mx-2 fill-current" />
-                <span>at MU</span>
+              <div className="text-sm text-gray-500">
+                Made with ❤️ for MU students
               </div>
             </div>
+            
             <div>
-              <h3 className="font-bold text-lg mb-6">Quick Links</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <h3 className="text-lg font-semibold mb-4">Marketplace</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/dashboard" className="hover:text-white transition-colors">Browse Items</Link></li>
+                <li><Link href="/create" className="hover:text-white transition-colors">Sell Something</Link></li>
+                <li><Link href="/favorites" className="hover:text-white transition-colors">My Favorites</Link></li>
+                <li><Link href="/my-listings" className="hover:text-white transition-colors">My Listings</Link></li>
               </ul>
             </div>
+            
             <div>
-              <h3 className="font-bold text-lg mb-6">Community</h3>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-                <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
-                <li><a href="#testimonials" className="hover:text-white transition-colors">Testimonials</a></li>
-                <li><Link href="/auth" className="hover:text-white transition-colors">Join Now</Link></li>
+              <h3 className="text-lg font-semibold mb-4">Community</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><Link href="/chat" className="hover:text-white transition-colors">Messages</Link></li>
+                <li><Link href="/profile" className="hover:text-white transition-colors">My Profile</Link></li>
+                <li><a href="#" className="hover:text-white transition-colors">Safety Guidelines</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Community Rules</a></li>
+              </ul>
+            </div>
+            
+            <div>
+              <h3 className="text-lg font-semibold mb-4">Support</h3>
+              <ul className="space-y-2 text-gray-400">
+                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Report Issue</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
               </ul>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-8 mt-12 text-center text-gray-400">
-            <p>&copy; 2025 MU Connect. All rights reserved. • Exclusively for Marwadi University students.</p>
+          
+          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div className="text-gray-400 text-sm">
+              © 2025 MU Market. All rights reserved.
+            </div>
+            <div className="text-gray-400 text-sm mt-4 md:mt-0">
+              Exclusively for Marwadi University Students
+            </div>
           </div>
         </div>
       </footer>
