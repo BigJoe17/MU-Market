@@ -4,31 +4,33 @@ import React from 'react'
 import Link from 'next/link'
 import { Star, Users, MessageCircle, ShoppingBag, BookOpen, Briefcase, 
          Shield, Zap, CheckCircle, TrendingUp, ArrowRight, Search, 
-         CreditCard, Globe } from 'lucide-react'
+         Sparkles, Zap as Lightning, Globe } from 'lucide-react'
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden">
       {/* Navigation */}
-      <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
+      <nav className="bg-black/90 backdrop-blur-lg border-b border-gray-800 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
-              <div className="text-2xl font-bold text-blue-900">MU Market</div>
-              <div className="ml-3 text-xs text-blue-700 bg-blue-50 px-2 py-1 rounded-full font-medium">
-                Student Marketplace
+              <div className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                MU Market
+              </div>
+              <div className="ml-3 text-xs text-cyan-400 bg-cyan-400/10 border border-cyan-400/30 px-2 py-1 rounded-full font-medium">
+                NEON MARKETPLACE
               </div>
             </div>
             <div className="flex items-center space-x-4">
               <Link 
                 href="/auth" 
-                className="text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-gray-300 hover:text-cyan-400 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300"
               >
                 Sign In
               </Link>
               <Link 
                 href="/auth" 
-                className="bg-blue-900 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:bg-blue-800 transition-colors shadow-sm"
+                className="bg-gradient-to-r from-cyan-500 to-purple-600 text-white px-6 py-2 rounded-lg text-sm font-semibold hover:from-cyan-400 hover:to-purple-500 transition-all duration-300 shadow-lg shadow-cyan-500/25"
               >
                 Join Now
               </Link>
@@ -38,369 +40,407 @@ export default function LandingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-20 pb-16 bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-20 pb-32 overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute top-1/3 right-1/4 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-72 h-72 bg-pink-500/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
+        </div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              The <span className="text-blue-900">Student Marketplace</span> 
-              <br />for Marwadi University
+            <div className="mb-8">
+              <span className="inline-flex items-center bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 text-cyan-400 px-4 py-2 rounded-full text-sm font-medium">
+                <Lightning className="w-4 h-4 mr-2" />
+                FUTURE OF STUDENT TRADING
+              </span>
+            </div>
+            
+            <h1 className="text-6xl md:text-8xl font-black mb-8 leading-tight">
+              <span className="bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+                THE NEON
+              </span>
+              <br />
+              <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+                MARKETPLACE
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Buy, sell, and trade textbooks, electronics, services, and skills with verified MU students. 
-              Safe, simple, and exclusively for our university community.
+            
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
+              Experience the <span className="text-cyan-400 font-semibold">future of student commerce</span> at Marwadi University. 
+              Buy, sell, and trade in a <span className="text-purple-400 font-semibold">vibrant digital ecosystem</span> designed for the next generation.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
               <Link 
                 href="/auth" 
-                className="bg-blue-900 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors shadow-lg flex items-center gap-2"
+                className="group bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-xl font-bold hover:from-cyan-400 hover:via-purple-500 hover:to-pink-500 transition-all duration-500 shadow-2xl shadow-cyan-500/30 hover:shadow-purple-500/40 transform hover:scale-105 flex items-center gap-3"
               >
-                Start Shopping <ArrowRight className="w-5 h-5" />
+                <Sparkles className="w-6 h-6" />
+                Enter the Matrix
+                <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </Link>
+              
               <Link 
-                href="/auth" 
-                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:border-blue-900 hover:text-blue-900 transition-colors flex items-center gap-2"
+                href="/dashboard" 
+                className="group border-2 border-cyan-500 text-cyan-400 px-10 py-5 rounded-2xl text-xl font-bold hover:bg-cyan-500/10 hover:border-purple-500 hover:text-purple-400 transition-all duration-500 flex items-center gap-3"
               >
-                List an Item <ShoppingBag className="w-5 h-5" />
+                <Globe className="w-6 h-6" />
+                Explore Universe
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 bg-white border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-3xl font-bold text-blue-900 mb-2">500+</div>
-              <div className="text-gray-600">Active Students</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-900 mb-2">1,200+</div>
-              <div className="text-gray-600">Items Listed</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-900 mb-2">800+</div>
-              <div className="text-gray-600">Successful Trades</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-blue-900 mb-2">4.8/5</div>
-              <div className="text-gray-600">User Rating</div>
-            </div>
+      {/* Neon Stats Grid */}
+      <section className="py-24 relative">
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-cyan-900/20"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: "500+", label: "Digital Nomads", color: "cyan" },
+              { number: "1.2K+", label: "Neon Items", color: "purple" },
+              { number: "800+", label: "Quantum Trades", color: "pink" },
+              { number: "4.8★", label: "Cosmic Rating", color: "yellow" }
+            ].map((stat, index) => (
+              <div key={index} className="text-center group">
+                <div className={`text-4xl md:text-6xl font-black mb-3 bg-gradient-to-r ${
+                  stat.color === 'cyan' ? 'from-cyan-400 to-cyan-600' :
+                  stat.color === 'purple' ? 'from-purple-400 to-purple-600' :
+                  stat.color === 'pink' ? 'from-pink-400 to-pink-600' :
+                  'from-yellow-400 to-yellow-600'
+                } bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300`}>
+                  {stat.number}
+                </div>
+                <div className="text-gray-400 font-medium">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="py-20 bg-gray-50">
+      {/* Neon Categories */}
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What You Can Find</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Discover everything you need for your university life, all in one marketplace
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              NEON CATEGORIES
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Discover digital treasures across our <span className="text-cyan-400">illuminated marketplace dimensions</span>
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <BookOpen className="w-8 h-8 text-blue-900" />
+            {[
+              {
+                icon: BookOpen,
+                title: "CYBER ACADEMICS",
+                description: "Digital textbooks, quantum notes, holographic study materials, and neural lab equipment.",
+                gradient: "from-cyan-500 to-blue-600",
+                borderColor: "border-cyan-500/50",
+                bgColor: "bg-cyan-500/5"
+              },
+              {
+                icon: ShoppingBag,
+                title: "TECH MATRIX",
+                description: "Futuristic laptops, neural smartphones, quantum headphones, and cyberpunk accessories.",
+                gradient: "from-purple-500 to-pink-600",
+                borderColor: "border-purple-500/50",
+                bgColor: "bg-purple-500/5"
+              },
+              {
+                icon: Briefcase,
+                title: "SKILL NEXUS",
+                description: "AI tutoring, code wizardry, digital artistry, and interdimensional freelance services.",
+                gradient: "from-pink-500 to-red-600",
+                borderColor: "border-pink-500/50",
+                bgColor: "bg-pink-500/5"
+              }
+            ].map((category, index) => (
+              <div key={index} className={`group ${category.bgColor} ${category.borderColor} border-2 p-8 rounded-3xl hover:scale-105 transition-all duration-500 relative overflow-hidden`}>
+                <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="relative">
+                  <div className={`w-20 h-20 bg-gradient-to-r ${category.gradient} rounded-2xl flex items-center justify-center mx-auto mb-8 group-hover:rotate-12 transition-transform duration-500`}>
+                    <category.icon className="w-10 h-10 text-white" />
+                  </div>
+                  <h3 className="text-2xl font-black text-white mb-6 tracking-wider">{category.title}</h3>
+                  <p className="text-gray-400 leading-relaxed">
+                    {category.description}
+                  </p>
+                  <div className={`mt-6 text-sm bg-gradient-to-r ${category.gradient} bg-clip-text text-transparent font-bold`}>
+                    EXPLORE DIMENSION →
+                  </div>
+                </div>
               </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Academic Items</h3>
-              <p className="text-gray-600 mb-6">
-                Textbooks, notes, study materials, calculators, and lab equipment at student-friendly prices.
-              </p>
-              <div className="text-sm text-blue-900 font-medium">
-                Popular: Engineering Textbooks, Lab Manuals, Stationery
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <ShoppingBag className="w-8 h-8 text-blue-900" />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Electronics & Gadgets</h3>
-              <p className="text-gray-600 mb-6">
-                Laptops, smartphones, headphones, chargers, and other tech essentials for students.
-              </p>
-              <div className="text-sm text-blue-900 font-medium">
-                Popular: Laptops, Phone Accessories, Gaming Items
-              </div>
-            </div>
-            
-            <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-200 text-center hover:shadow-md transition-shadow">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <Briefcase className="w-8 h-8 text-blue-900" />
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">Services & Skills</h3>
-              <p className="text-gray-600 mb-6">
-                Tutoring, project help, graphic design, coding services, and freelance opportunities.
-              </p>
-              <div className="text-sm text-blue-900 font-medium">
-                Popular: Math Tutoring, Programming Help, Design Services
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* How It Works */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">How MU Market Works</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Simple, secure, and designed specifically for university students
+      {/* Neon Process */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              QUANTUM PROCESS
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Enter the future in three simple <span className="text-purple-400">dimensional steps</span>
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-blue-900">1</span>
+            {[
+              {
+                step: "01",
+                title: "NEURAL LOGIN",
+                description: "Authenticate with your @marwadiuniversity.ac.in neural ID to access the quantum marketplace.",
+                color: "cyan"
+              },
+              {
+                step: "02", 
+                title: "DIGITAL BROWSE",
+                description: "Navigate through holographic listings or upload your items to the neon marketplace matrix.",
+                color: "purple"
+              },
+              {
+                step: "03",
+                title: "COSMIC TRADE",
+                description: "Connect through quantum messaging and execute trades in our secure digital dimension.",
+                color: "pink"
+              }
+            ].map((process, index) => (
+              <div key={index} className="text-center group">
+                <div className={`relative w-32 h-32 mx-auto mb-8`}>
+                  <div className={`absolute inset-0 rounded-full bg-gradient-to-r ${
+                    process.color === 'cyan' ? 'from-cyan-500 to-cyan-700' :
+                    process.color === 'purple' ? 'from-purple-500 to-purple-700' :
+                    'from-pink-500 to-pink-700'
+                  } opacity-20 group-hover:opacity-40 transition-opacity duration-500`}></div>
+                  <div className={`absolute inset-2 rounded-full border-2 ${
+                    process.color === 'cyan' ? 'border-cyan-500' :
+                    process.color === 'purple' ? 'border-purple-500' :
+                    'border-pink-500'
+                  } flex items-center justify-center group-hover:scale-110 transition-transform duration-500`}>
+                    <span className={`text-3xl font-black ${
+                      process.color === 'cyan' ? 'text-cyan-400' :
+                      process.color === 'purple' ? 'text-purple-400' :
+                      'text-pink-400'
+                    }`}>
+                      {process.step}
+                    </span>
+                  </div>
+                </div>
+                <h3 className="text-2xl font-black text-white mb-4 tracking-wider">{process.title}</h3>
+                <p className="text-gray-400 leading-relaxed max-w-sm mx-auto">
+                  {process.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Sign Up with MU Email</h3>
-              <p className="text-gray-600">
-                Use your @marwadiuniversity.ac.in email to verify you&apos;re a genuine MU student and join our trusted community.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-blue-900">2</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Browse or List Items</h3>
-              <p className="text-gray-600">
-                Search for what you need or list items you want to sell. Add photos, descriptions, and set your price.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-100 to-blue-200 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-2xl font-bold text-blue-900">3</span>
-              </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Connect & Trade</h3>
-              <p className="text-gray-600">
-                Message sellers directly, negotiate prices, and arrange safe meetups on campus or nearby.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-20 bg-gray-50">
+      {/* Neon Features Grid */}
+      <section className="py-24 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose MU Market?</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Built by students, for students, with features that matter most to your university experience
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
+              CYBERPUNK FEATURES
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Experience next-generation trading with <span className="text-cyan-400">quantum-powered features</span>
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-blue-900" />
+            {[
+              { icon: Shield, title: "QUANTUM SECURITY", description: "Military-grade encryption with neural verification protocols.", color: "cyan" },
+              { icon: MessageCircle, title: "HOLO MESSAGING", description: "Real-time quantum communication across digital dimensions.", color: "purple" },
+              { icon: Search, title: "AI DISCOVERY", description: "Neural search algorithms that predict your cosmic needs.", color: "pink" },
+              { icon: Star, title: "RATING MATRIX", description: "Dimensional reputation system with quantum trust metrics.", color: "yellow" },
+              { icon: Zap, title: "INSTANT DEPLOY", description: "Lightning-fast listing deployment across the metaverse.", color: "cyan" },
+              { icon: TrendingUp, title: "PRICE ORACLE", description: "AI-powered market predictions from the digital future.", color: "purple" }
+            ].map((feature, index) => (
+              <div key={index} className={`group p-8 rounded-3xl border-2 ${
+                feature.color === 'cyan' ? 'border-cyan-500/30 bg-cyan-500/5 hover:bg-cyan-500/10' :
+                feature.color === 'purple' ? 'border-purple-500/30 bg-purple-500/5 hover:bg-purple-500/10' :
+                feature.color === 'pink' ? 'border-pink-500/30 bg-pink-500/5 hover:bg-pink-500/10' :
+                'border-yellow-500/30 bg-yellow-500/5 hover:bg-yellow-500/10'
+              } hover:scale-105 transition-all duration-500`}>
+                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 bg-gradient-to-r ${
+                  feature.color === 'cyan' ? 'from-cyan-500 to-cyan-700' :
+                  feature.color === 'purple' ? 'from-purple-500 to-purple-700' :
+                  feature.color === 'pink' ? 'from-pink-500 to-pink-700' :
+                  'from-yellow-500 to-yellow-700'
+                } group-hover:rotate-12 transition-transform duration-500`}>
+                  <feature.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-xl font-black text-white mb-4 tracking-wider">{feature.title}</h3>
+                <p className="text-gray-400">{feature.description}</p>
               </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">University-Verified</h3>
-              <p className="text-gray-600">Only verified MU students can join, ensuring a safe and trusted community.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <MessageCircle className="w-6 h-6 text-blue-900" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Direct Messaging</h3>
-              <p className="text-gray-600">Chat directly with buyers and sellers to negotiate and arrange meetups.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Search className="w-6 h-6 text-blue-900" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Smart Search</h3>
-              <p className="text-gray-600">Find exactly what you need with filters for category, price, and condition.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Star className="w-6 h-6 text-blue-900" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Rating System</h3>
-              <p className="text-gray-600">Rate and review other students to build trust and reputation in the community.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <Zap className="w-6 h-6 text-blue-900" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Quick Listings</h3>
-              <p className="text-gray-600">List items in minutes with our simple form and photo upload system.</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
-              <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                <TrendingUp className="w-6 h-6 text-blue-900" />
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-3">Price Insights</h3>
-              <p className="text-gray-600">See market trends and suggested prices to get the best deals.</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">What MU Students Say</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Real experiences from your fellow university students
+      {/* Neon Testimonials */}
+      <section className="py-24 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-900/10 via-purple-900/10 to-pink-900/10"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-20">
+            <h2 className="text-5xl md:text-6xl font-black mb-6 bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+              DIGITAL VOICES
+            </h2>
+            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              Hear from our <span className="text-purple-400">quantum community</span> of digital nomads
             </p>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="font-semibold text-blue-900">AP</span>
+            {[
+              {
+                name: "CYBER_ARJUN",
+                role: "Neural Engineer • Level 3",
+                message: "Traded my quantum laptop for next-gen textbooks. The neon marketplace is absolutely mind-blowing!",
+                gradient: "from-cyan-500 to-blue-600",
+                avatar: "AP"
+              },
+              {
+                name: "PRIYA_NEO",
+                role: "Digital Architect • Level 2", 
+                message: "Found the perfect AI tutor through the holographic search. This platform is from the future!",
+                gradient: "from-purple-500 to-pink-600",
+                avatar: "PN"
+              },
+              {
+                name: "RAJESH_X",
+                role: "Quantum Developer • Level 4",
+                message: "Best cyberpunk marketplace ever! Made credits before graduation and helped junior code warriors.",
+                gradient: "from-pink-500 to-red-600", 
+                avatar: "RX"
+              }
+            ].map((testimonial, index) => (
+              <div key={index} className="group p-8 rounded-3xl border border-gray-800 bg-gray-900/50 hover:bg-gray-800/50 transition-all duration-500 hover:scale-105">
+                <div className="flex items-center mb-6">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-r ${testimonial.gradient} flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform duration-500`}>
+                    <span className="font-black text-white text-lg">{testimonial.avatar}</span>
+                  </div>
+                  <div>
+                    <h4 className="font-black text-white tracking-wider">{testimonial.name}</h4>
+                    <p className="text-gray-400 text-sm">{testimonial.role}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Arjun Patel</h4>
-                  <p className="text-gray-600 text-sm">Computer Science, 3rd Year</p>
-                </div>
-              </div>
-              <p className="text-gray-700 mb-4">
-                &quot;Sold my old laptop and bought textbooks for next semester. The whole process was smooth and I saved a lot of money!&quot;
-              </p>
-              <div className="flex text-yellow-400">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="font-semibold text-blue-900">PS</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Priya Sharma</h4>
-                  <p className="text-gray-600 text-sm">Business Management, 2nd Year</p>
-                </div>
-              </div>
-              <p className="text-gray-700 mb-4">
-                &quot;Found a calculus tutor who helped me improve my grades. The rating system helped me choose someone reliable.&quot;
-              </p>
-              <div className="flex text-yellow-400">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-            </div>
-            
-            <div className="bg-gray-50 p-8 rounded-xl">
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                  <span className="font-semibold text-blue-900">RK</span>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900">Rajesh Kumar</h4>
-                  <p className="text-gray-600 text-sm">Mechanical Engineering, 4th Year</p>
+                <p className="text-gray-300 mb-6 leading-relaxed">
+                  &quot;{testimonial.message}&quot;
+                </p>
+                <div className="flex text-yellow-400">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Star key={star} className="w-5 h-5 fill-current" />
+                  ))}
                 </div>
               </div>
-              <p className="text-gray-700 mb-4">
-                &quot;Perfect platform for selling things before graduation. Made some extra money and helped junior students too!&quot;
-              </p>
-              <div className="flex text-yellow-400">
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <Star key={star} className="w-5 h-5 fill-current" />
-                ))}
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-900 to-blue-800">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Start Trading?
+      {/* Neon CTA */}
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-cyan-600/20 via-purple-600/20 to-pink-600/20"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-cyan-500/30 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div className="relative max-w-6xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-6xl md:text-8xl font-black text-white mb-8 leading-tight">
+            ENTER THE
+            <br />
+            <span className="bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent animate-pulse">
+              NEON VERSE
+            </span>
           </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Join hundreds of MU students who are already buying, selling, and sharing on our marketplace.
+          <p className="text-2xl text-gray-300 mb-12 max-w-4xl mx-auto">
+            Join the <span className="text-cyan-400 font-bold">quantum revolution</span> of student commerce
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <Link 
               href="/auth" 
-              className="bg-white text-blue-900 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors shadow-lg inline-flex items-center justify-center gap-2"
+              className="group bg-gradient-to-r from-cyan-500 via-purple-600 to-pink-600 text-white px-12 py-6 rounded-2xl text-2xl font-black hover:from-cyan-400 hover:via-purple-500 hover:to-pink-500 transition-all duration-500 shadow-2xl shadow-cyan-500/30 hover:shadow-purple-500/40 transform hover:scale-105 flex items-center justify-center gap-3"
             >
-              Sign Up with MU Email <ArrowRight className="w-5 h-5" />
+              <Lightning className="w-8 h-8" />
+              JACK IN NOW
+              <ArrowRight className="w-8 h-8 group-hover:translate-x-2 transition-transform" />
             </Link>
             <Link 
               href="/dashboard" 
-              className="border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-white hover:text-blue-900 transition-colors inline-flex items-center justify-center gap-2"
+              className="group border-2 border-cyan-500 text-cyan-400 px-12 py-6 rounded-2xl text-2xl font-black hover:bg-cyan-500/10 hover:border-purple-500 hover:text-purple-400 transition-all duration-500 flex items-center justify-center gap-3"
             >
-              Browse Marketplace <ShoppingBag className="w-5 h-5" />
+              <Globe className="w-8 h-8" />
+              EXPLORE MATRIX
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      {/* Cyberpunk Footer */}
+      <footer className="bg-black border-t border-gray-800 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="text-2xl font-bold mb-4">MU Market</div>
-              <p className="text-gray-400 mb-4">
-                The official student marketplace for Marwadi University. Safe, verified, and community-driven.
+              <div className="text-3xl font-black bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500 bg-clip-text text-transparent mb-6">
+                MU MARKET
+              </div>
+              <p className="text-gray-400 mb-6 leading-relaxed">
+                The cyberpunk student marketplace for Marwadi University. Experience the future of digital commerce.
               </p>
-              <div className="text-sm text-gray-500">
-                Made with ❤️ for MU students
+              <div className="text-sm text-purple-400 font-bold">
+                CODED WITH ⚡ FOR MU CYBORGS
               </div>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Marketplace</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/dashboard" className="hover:text-white transition-colors">Browse Items</Link></li>
-                <li><Link href="/create" className="hover:text-white transition-colors">Sell Something</Link></li>
-                <li><Link href="/favorites" className="hover:text-white transition-colors">My Favorites</Link></li>
-                <li><Link href="/my-listings" className="hover:text-white transition-colors">My Listings</Link></li>
+              <h3 className="text-lg font-black text-white mb-6 tracking-wider">NEON MARKETPLACE</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><Link href="/dashboard" className="hover:text-cyan-400 transition-colors">◦ Browse Matrix</Link></li>
+                <li><Link href="/create" className="hover:text-cyan-400 transition-colors">◦ Upload Items</Link></li>
+                <li><Link href="/favorites" className="hover:text-cyan-400 transition-colors">◦ Saved Items</Link></li>
+                <li><Link href="/my-listings" className="hover:text-cyan-400 transition-colors">◦ My Uploads</Link></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Community</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/chat" className="hover:text-white transition-colors">Messages</Link></li>
-                <li><Link href="/profile" className="hover:text-white transition-colors">My Profile</Link></li>
-                <li><a href="#" className="hover:text-white transition-colors">Safety Guidelines</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Community Rules</a></li>
+              <h3 className="text-lg font-black text-white mb-6 tracking-wider">DIGITAL NEXUS</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><Link href="/chat" className="hover:text-purple-400 transition-colors">◦ Holo Messages</Link></li>
+                <li><Link href="/profile" className="hover:text-purple-400 transition-colors">◦ Neural Profile</Link></li>
+                <li><a href="#" className="hover:text-purple-400 transition-colors">◦ Cyber Safety</a></li>
+                <li><a href="#" className="hover:text-purple-400 transition-colors">◦ Digital Rules</a></li>
               </ul>
             </div>
             
             <div>
-              <h3 className="text-lg font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Report Issue</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+              <h3 className="text-lg font-black text-white mb-6 tracking-wider">QUANTUM SUPPORT</h3>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="#" className="hover:text-pink-400 transition-colors">◦ Help Portal</a></li>
+                <li><a href="#" className="hover:text-pink-400 transition-colors">◦ Neural Contact</a></li>
+                <li><a href="#" className="hover:text-pink-400 transition-colors">◦ Bug Reports</a></li>
+                <li><a href="#" className="hover:text-pink-400 transition-colors">◦ Privacy Matrix</a></li>
               </ul>
             </div>
           </div>
           
-          <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <div className="text-gray-400 text-sm">
-              © 2025 MU Market. All rights reserved.
+          <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div className="text-gray-500 text-sm">
+              © 2025 MU MARKET • ALL DIGITAL RIGHTS RESERVED
             </div>
-            <div className="text-gray-400 text-sm mt-4 md:mt-0">
-              Exclusively for Marwadi University Students
+            <div className="text-gray-500 text-sm mt-4 md:mt-0">
+              EXCLUSIVELY FOR MARWADI UNIVERSITY CYBORGS
             </div>
           </div>
         </div>

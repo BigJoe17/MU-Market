@@ -34,7 +34,10 @@ export default function AuthPage() {
           email,
           password,
           options: {
-            data: { name }
+            data: { name },
+            emailRedirectTo: process.env.NEXT_PUBLIC_SITE_URL ? 
+              `${process.env.NEXT_PUBLIC_SITE_URL}/dashboard` : 
+              `${window.location.origin}/dashboard`
           }
         })
         if (error) throw error
