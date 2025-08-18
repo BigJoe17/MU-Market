@@ -1,7 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['mwbbjubqxdwksxhzeqxh.supabase.co'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'mwbbjubqxdwksxhzeqxh.supabase.co',
+        port: '',
+        pathname: '/storage/v1/object/public/listings/**',
+      },
+    ],
   },
   webpack: (config) => {
     // Fix case sensitivity issues on Windows

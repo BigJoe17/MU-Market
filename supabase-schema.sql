@@ -4,9 +4,18 @@
 -- Create users table
 CREATE TABLE IF NOT EXISTS public.users (
   id UUID REFERENCES auth.users ON DELETE CASCADE PRIMARY KEY,
-  name TEXT NOT NULL,
+  name TEXT,
   email TEXT UNIQUE NOT NULL,
-  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  department TEXT,
+  bio TEXT,
+  profile_image_url TEXT,
+  is_premium BOOLEAN DEFAULT FALSE,
+  premium_expires_at TIMESTAMP WITH TIME ZONE,
+  total_sales INTEGER DEFAULT 0,
+  rating_average DECIMAL(3,2) DEFAULT 0.00,
+  rating_count INTEGER DEFAULT 0,
+  last_active TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
 -- Create listings table
@@ -51,7 +60,7 @@ CREATE POLICY "Users can delete own listings" ON public.listings
 
 -- Create storage bucket for listing images
 INSERT INTO storage.buckets (id, name, public)
-VALUES ('listing-images', 'listing-images', true)
+VALUES ('listings', 'listings', true)
 ON CONFLICT (id) DO NOTHING;
 
 -- Enable storage extension if not already enabled
@@ -59,28 +68,40 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- Storage policy for listing images
 CREATE POLICY "Users can upload listing images" ON storage.objects
-  FOR INSERT WITH CHECK (bucket_id = 'listing-images' AND auth.role() = 'authenticated');
+  FOR INSERT WITH CHECK (bucket_id = 'listings' AND auth.role() = 'authenticated');
 
 CREATE POLICY "Users can view listing images" ON storage.objects
-  FOR SELECT USING (bucket_id = 'listing-images');
+  FOR SELECT USING (bucket_id = 'listings');
 
 CREATE POLICY "Users can update own listing images" ON storage.objects
-  FOR UPDATE USING (bucket_id = 'listing-images' AND auth.uid()::text = (storage.foldername(name))[1]);
+  FOR UPDATE USING (bucket_id = 'listings' AND auth.uid()::text = (storage.foldername(name))[1]);
 
 CREATE POLICY "Users can delete own listing images" ON storage.objects
-  FOR DELETE USING (bucket_id = 'listing-images' AND auth.uid()::text = (storage.foldername(name))[1]);
+  FOR DELETE USING (bucket_id = 'listings' AND auth.uid()::text = (storage.foldername(name))[1]);
 
 -- Function to automatically create user profile on signup
 CREATE OR REPLACE FUNCTION public.handle_new_user()
 RETURNS TRIGGER AS $$
 BEGIN
-  INSERT INTO public.users (id, name, email)
+  INSERT INTO public.users (id, name, email, created_at, is_premium, total_sales, rating_average, rating_count, last_active)
   VALUES (
     NEW.id,
     COALESCE(NEW.raw_user_meta_data->>'name', split_part(NEW.email, '@', 1)),
-    NEW.email
-  );
+    NEW.email,
+    NEW.created_at,
+    FALSE,
+    0,
+    0.00,
+    0,
+    NEW.created_at
+  )
+  ON CONFLICT (id) DO NOTHING;
   RETURN NEW;
+EXCEPTION
+  WHEN OTHERS THEN
+    -- Log the error but don't fail the auth process
+    RAISE WARNING 'Failed to create user profile for %: %', NEW.id, SQLERRM;
+    RETURN NEW;
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;
 
